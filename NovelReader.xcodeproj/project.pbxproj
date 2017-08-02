@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A77F48171F323D4C00E00DAA /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */; };
+		A77F48191F323DAC00E00DAA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F48181F323DAC00E00DAA /* WebViewController.swift */; };
+		A77F481B1F323E2700E00DAA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F481A1F323E2700E00DAA /* SettingViewController.swift */; };
+		A77F481D1F323EBE00E00DAA /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F481C1F323EBE00E00DAA /* SideMenuViewController.swift */; };
 		A7F131AA1F31DED70018A4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F131A91F31DED70018A4D9 /* AppDelegate.swift */; };
-		A7F131AC1F31DED70018A4D9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F131AB1F31DED70018A4D9 /* FirstViewController.swift */; };
-		A7F131AE1F31DED70018A4D9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F131AD1F31DED70018A4D9 /* SecondViewController.swift */; };
 		A7F131B11F31DED70018A4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F131AF1F31DED70018A4D9 /* Main.storyboard */; };
 		A7F131B31F31DED70018A4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7F131B21F31DED70018A4D9 /* Assets.xcassets */; };
 		A7F131B61F31DED70018A4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F131B41F31DED70018A4D9 /* LaunchScreen.storyboard */; };
@@ -35,10 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
+		A77F48181F323DAC00E00DAA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		A77F481A1F323E2700E00DAA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A77F481C1F323EBE00E00DAA /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		A7F131A61F31DED70018A4D9 /* NovelReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovelReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F131A91F31DED70018A4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7F131AB1F31DED70018A4D9 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		A7F131AD1F31DED70018A4D9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A7F131B01F31DED70018A4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7F131B21F31DED70018A4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7F131B51F31DED70018A4D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,9 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				A7F131A91F31DED70018A4D9 /* AppDelegate.swift */,
-				A7F131AB1F31DED70018A4D9 /* FirstViewController.swift */,
-				A7F131AD1F31DED70018A4D9 /* SecondViewController.swift */,
 				A7F131AF1F31DED70018A4D9 /* Main.storyboard */,
+				A77F481C1F323EBE00E00DAA /* SideMenuViewController.swift */,
+				A77F481A1F323E2700E00DAA /* SettingViewController.swift */,
+				A77F48181F323DAC00E00DAA /* WebViewController.swift */,
+				A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */,
 				A7F131B21F31DED70018A4D9 /* Assets.xcassets */,
 				A7F131B41F31DED70018A4D9 /* LaunchScreen.storyboard */,
 				A7F131B71F31DED70018A4D9 /* Info.plist */,
@@ -265,9 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7F131AE1F31DED70018A4D9 /* SecondViewController.swift in Sources */,
+				A77F48171F323D4C00E00DAA /* BookshelfViewController.swift in Sources */,
 				A7F131AA1F31DED70018A4D9 /* AppDelegate.swift in Sources */,
-				A7F131AC1F31DED70018A4D9 /* FirstViewController.swift in Sources */,
+				A77F48191F323DAC00E00DAA /* WebViewController.swift in Sources */,
+				A77F481D1F323EBE00E00DAA /* SideMenuViewController.swift in Sources */,
+				A77F481B1F323E2700E00DAA /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +528,7 @@
 				A7F131D21F31DED70018A4D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7F131D31F31DED70018A4D9 /* Build configuration list for PBXNativeTarget "NovelReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +537,7 @@
 				A7F131D51F31DED70018A4D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7F131D61F31DED70018A4D9 /* Build configuration list for PBXNativeTarget "NovelReaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +546,7 @@
 				A7F131D81F31DED70018A4D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
