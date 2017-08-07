@@ -17,6 +17,8 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.coverView.alpha = 0.0
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WebViewController.didTapCover(_:)))
+        coverView.addGestureRecognizer(tapGesture)
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,18 +27,17 @@ class WebViewController: UIViewController {
     
     func showSideMenu() {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
-            self.sideView.frame.size.width += 240.0
+            self.sideView.frame.size.width += 230.0
             self.coverView.alpha += 0.5
         }, completion: nil)
-        self.sideView.frame.size.width = 240.0
+        self.sideView.frame.size.width = 230.0
         self.coverView.alpha = 0.5
         self.coverView.isUserInteractionEnabled = true
-        
     }
     
     func hideSideMenu() {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
-            self.sideView.frame.size.width -= 240.0
+            self.sideView.frame.size.width -= 230.0
             self.coverView.alpha -= 0.5
         }, completion: nil)
         self.sideView.frame.size.width = 0.0
@@ -45,9 +46,11 @@ class WebViewController: UIViewController {
     }
     
     @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
-        print("Tap")
-        if (self.sideView.frame.size.width < 240.0) { self.showSideMenu() }
+        if (self.sideView.frame.size.width < 230.0) { self.showSideMenu() }
         else if (self.sideView.frame.size.width > 0.0) { self.hideSideMenu() }
     }
     
+    @IBAction func didTapCover(_ sender: UIBarButtonItem) {
+        if (self.sideView.frame.size.width > 0.0) { self.hideSideMenu() }
+    }
 }
