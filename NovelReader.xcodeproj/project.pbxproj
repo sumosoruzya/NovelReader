@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A73C93E91F381A4F006B95A8 /* WebSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C93E81F381A4F006B95A8 /* WebSideViewController.swift */; };
 		A77C0E2F1F344F650095C6EB /* WebMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C0E2E1F344F650095C6EB /* WebMainViewController.swift */; };
 		A77F48171F323D4C00E00DAA /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */; };
 		A77F48191F323DAC00E00DAA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F48181F323DAC00E00DAA /* WebViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A73C93E81F381A4F006B95A8 /* WebSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSideViewController.swift; sourceTree = "<group>"; };
 		A77C0E2E1F344F650095C6EB /* WebMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebMainViewController.swift; sourceTree = "<group>"; };
 		A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
 		A77F48181F323DAC00E00DAA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				A7F131AF1F31DED70018A4D9 /* Main.storyboard */,
 				A77F481A1F323E2700E00DAA /* SettingViewController.swift */,
 				A77F48181F323DAC00E00DAA /* WebViewController.swift */,
+				A73C93E81F381A4F006B95A8 /* WebSideViewController.swift */,
 				A77C0E2E1F344F650095C6EB /* WebMainViewController.swift */,
 				A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */,
 				A7F131B21F31DED70018A4D9 /* Assets.xcassets */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73C93E91F381A4F006B95A8 /* WebSideViewController.swift in Sources */,
 				A77F48171F323D4C00E00DAA /* BookshelfViewController.swift in Sources */,
 				A7F131AA1F31DED70018A4D9 /* AppDelegate.swift in Sources */,
 				A77F48191F323DAC00E00DAA /* WebViewController.swift in Sources */,

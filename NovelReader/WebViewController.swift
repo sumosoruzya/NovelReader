@@ -11,42 +11,43 @@ import UIKit
 class WebViewController: UIViewController {
     
     @IBOutlet weak var sideView: UIView!
-    
-    var isBackgroundVisible = false
+    @IBOutlet weak var coverView: UIView!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.coverView.alpha = 0.0
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func showBackground() {
-        if (self.isBackgroundVisible) { return }
-        self.isBackgroundVisible = true
-        
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+    func showSideMenu() {
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
             self.sideView.frame.size.width += 240.0
+            self.coverView.alpha += 0.5
         }, completion: nil)
-    }
-    
-    func hideBackground() {
-        if (!self.isBackgroundVisible) { return }
-        self.isBackgroundVisible = false
+        self.sideView.frame.size.width = 240.0
+        self.coverView.alpha = 0.5
+        self.coverView.isUserInteractionEnabled = true
         
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+    }
+    
+    func hideSideMenu() {
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
             self.sideView.frame.size.width -= 240.0
+            self.coverView.alpha -= 0.5
         }, completion: nil)
+        self.sideView.frame.size.width = 0.0
+        self.coverView.alpha = 0.0
+        self.coverView.isUserInteractionEnabled = false
     }
     
-    @IBAction func didEdgeSwipe(_ sender: UIScreenEdgePanGestureRecognizer) {
-        print("edge")
-        showBackground()
+    @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
+        print("Tap")
+        if (self.sideView.frame.size.width < 240.0) { self.showSideMenu() }
+        else if (self.sideView.frame.size.width > 0.0) { self.hideSideMenu() }
     }
     
-    @IBAction func didLeftSwipe(_ sender: UISwipeGestureRecognizer) {
-        print("swipe")
-        hideBackground()
-    }
 }
