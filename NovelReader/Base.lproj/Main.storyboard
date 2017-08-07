@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -31,53 +31,56 @@
         <!--Web View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" userLabel="Web View Controller" customClass="WebViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="8rJ-Kc-sve" userLabel="Web View Controller" customClass="WebViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                        <viewControllerLayoutGuide type="top" id="Ffl-QA-IPz"/>
+                        <viewControllerLayoutGuide type="bottom" id="1ru-Im-Vf0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="WwH-20-68m">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uLU-30-Zur">
-                                <rect key="frame" x="0.0" y="20" width="414" height="667"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-df-2qA" userLabel="Web View">
+                                <rect key="frame" x="0.0" y="20" width="834" height="1043"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="Cwd-nu-orq"/>
+                                    <segue destination="K3H-Pw-eOq" kind="embed" id="OLS-Hi-dUp"/>
                                 </connections>
-                            </webView>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3F-iW-TZX" userLabel="Side View">
+                                <rect key="frame" x="-4" y="20" width="0.0" height="1043"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                <connections>
+                                    <segue destination="9gN-BG-pWg" kind="embed" id="slB-Wv-OCr"/>
+                                </connections>
+                            </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="njQ-H3-tUd" appends="YES" id="Hy6-3U-eJM"/>
+                            <outletCollection property="gestureRecognizers" destination="fcs-q3-8I9" appends="YES" id="jc1-af-9zQ"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="cPa-gy-q4n"/>
                     <connections>
-                        <outlet property="webView" destination="uLU-30-Zur" id="iHw-eK-MAu"/>
-                        <segue destination="aGL-CP-1Gq" kind="presentation" identifier="sideMenuSegue" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="fX2-Iq-k5M"/>
+                        <outlet property="sideView" destination="B3F-iW-TZX" id="abj-Ns-Cvm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="njQ-H3-tUd">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="didEdgeSwipe:" destination="8rJ-Kc-sve" id="Vfn-HT-ILE"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="fcs-q3-8I9">
+                    <connections>
+                        <action selector="didLeftSwipe:" destination="8rJ-Kc-sve" id="wdF-W5-rgB"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="766.66666666666674" y="358.69565217391306"/>
-        </scene>
-        <!--Side Menu View Controller-->
-        <scene sceneID="611-cm-elh">
-            <objects>
-                <viewController id="aGL-CP-1Gq" userLabel="Side Menu View Controller" customClass="SideMenuViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ceL-2h-qur"/>
-                        <viewControllerLayoutGuide type="bottom" id="AQy-Vr-CZF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KPV-Et-Xs9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pjs-Vq-uq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1580" y="359"/>
+            <point key="canvasLocation" x="764.74820143884892" y="357.19424460431657"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Mrk-Yn-RTQ">
@@ -88,7 +91,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gb0-D8-Spt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xsB-7S-zUb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -101,7 +104,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -115,8 +117,40 @@
                         <segue destination="kGY-cj-DxQ" kind="relationship" relationship="viewControllers" id="56m-ZD-e6T"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-31" y="359"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rZs-OT-VIp">
+            <objects>
+                <viewController id="9gN-BG-pWg" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="D1n-Sc-HJf">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="1043"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZy-yL-GB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1321" y="359"/>
+        </scene>
+        <!--Web Main View Controller-->
+        <scene sceneID="BfY-Cc-3fp">
+            <objects>
+                <viewController id="K3H-Pw-eOq" userLabel="Web Main View Controller" customClass="WebMainViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="4ii-ly-tnm">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1043"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="webView" destination="4ii-ly-tnm" id="KLf-nc-vbx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mR-zo-jsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764.74820143884892" y="1056.7446043165469"/>
         </scene>
     </scenes>
 </document>
