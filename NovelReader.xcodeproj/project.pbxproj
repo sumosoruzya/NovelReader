@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A73C93E91F381A4F006B95A8 /* WebSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C93E81F381A4F006B95A8 /* WebSideViewController.swift */; };
+		A73C93ED1F3884B8006B95A8 /* WebSideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C93EC1F3884B8006B95A8 /* WebSideMenuTableViewController.swift */; };
+		A73C93F21F3AF9CE006B95A8 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73C93F11F3AF9CE006B95A8 /* Kanna.framework */; };
+		A73C93F71F3AFFE7006B95A8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73C93F61F3AFFE7006B95A8 /* Alamofire.framework */; };
+		A73C93F91F3B4AEF006B95A8 /* NovelDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C93F81F3B4AEF006B95A8 /* NovelDownloader.swift */; };
 		A77C0E2F1F344F650095C6EB /* WebMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C0E2E1F344F650095C6EB /* WebMainViewController.swift */; };
 		A77F48171F323D4C00E00DAA /* BookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */; };
 		A77F48191F323DAC00E00DAA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F48181F323DAC00E00DAA /* WebViewController.swift */; };
@@ -38,7 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A73C93E81F381A4F006B95A8 /* WebSideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSideViewController.swift; sourceTree = "<group>"; };
+		A73C93EC1F3884B8006B95A8 /* WebSideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebSideMenuTableViewController.swift; path = ../WebSideMenuTableViewController.swift; sourceTree = "<group>"; };
+		A73C93F11F3AF9CE006B95A8 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
+		A73C93F41F3AFFAC006B95A8 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
+		A73C93F61F3AFFE7006B95A8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		A73C93F81F3B4AEF006B95A8 /* NovelDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelDownloader.swift; sourceTree = "<group>"; };
 		A77C0E2E1F344F650095C6EB /* WebMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebMainViewController.swift; sourceTree = "<group>"; };
 		A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookshelfViewController.swift; sourceTree = "<group>"; };
 		A77F48181F323DAC00E00DAA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A73C93F71F3AFFE7006B95A8 /* Alamofire.framework in Frameworks */,
+				A73C93F21F3AF9CE006B95A8 /* Kanna.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +91,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A73C93F01F3AF9CE006B95A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A73C93F61F3AFFE7006B95A8 /* Alamofire.framework */,
+				A73C93F41F3AFFAC006B95A8 /* Carthage */,
+				A73C93F11F3AF9CE006B95A8 /* Kanna.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A7F1319D1F31DED70018A4D9 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +108,7 @@
 				A7F131BF1F31DED70018A4D9 /* NovelReaderTests */,
 				A7F131CA1F31DED70018A4D9 /* NovelReaderUITests */,
 				A7F131A71F31DED70018A4D9 /* Products */,
+				A73C93F01F3AF9CE006B95A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,8 +129,9 @@
 				A7F131AF1F31DED70018A4D9 /* Main.storyboard */,
 				A77F481A1F323E2700E00DAA /* SettingViewController.swift */,
 				A77F48181F323DAC00E00DAA /* WebViewController.swift */,
-				A73C93E81F381A4F006B95A8 /* WebSideViewController.swift */,
 				A77C0E2E1F344F650095C6EB /* WebMainViewController.swift */,
+				A73C93F81F3B4AEF006B95A8 /* NovelDownloader.swift */,
+				A73C93EC1F3884B8006B95A8 /* WebSideMenuTableViewController.swift */,
 				A77F48161F323D4C00E00DAA /* BookshelfViewController.swift */,
 				A7F131B21F31DED70018A4D9 /* Assets.xcassets */,
 				A7F131B41F31DED70018A4D9 /* LaunchScreen.storyboard */,
@@ -147,6 +168,7 @@
 				A7F131A21F31DED70018A4D9 /* Sources */,
 				A7F131A31F31DED70018A4D9 /* Frameworks */,
 				A7F131A41F31DED70018A4D9 /* Resources */,
+				A73C93F31F3AF9EC006B95A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -269,14 +291,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A73C93F31F3AF9EC006B95A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kanna.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A7F131A21F31DED70018A4D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A73C93E91F381A4F006B95A8 /* WebSideViewController.swift in Sources */,
 				A77F48171F323D4C00E00DAA /* BookshelfViewController.swift in Sources */,
 				A7F131AA1F31DED70018A4D9 /* AppDelegate.swift in Sources */,
+				A73C93ED1F3884B8006B95A8 /* WebSideMenuTableViewController.swift in Sources */,
+				A73C93F91F3B4AEF006B95A8 /* NovelDownloader.swift in Sources */,
 				A77F48191F323DAC00E00DAA /* WebViewController.swift in Sources */,
 				A77C0E2F1F344F650095C6EB /* WebMainViewController.swift in Sources */,
 				A77F481B1F323E2700E00DAA /* SettingViewController.swift in Sources */,
@@ -434,6 +475,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3P3257528P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = NovelReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sumo.NovelReader;
@@ -447,6 +493,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3P3257528P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = NovelReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sumo.NovelReader;

@@ -8,17 +8,31 @@
 
 import UIKit
 
+
 class WebViewController: UIViewController {
     
     @IBOutlet weak var sideView: UIView!
     @IBOutlet weak var coverView: UIView!
-    @IBOutlet weak var navItem: UINavigationItem!
+    
+    var mainVC: WebMainViewController!
+    var sideVC: WebSideMenuTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sideView.frame.origin.x = self.view.frame.origin.x + self.view.frame.size.width
+        
+        for i in self.childViewControllers {
+            switch i {
+            case is WebMainViewController:
+                mainVC = i as! WebMainViewController
+            case is WebSideMenuTableViewController:
+                sideVC = i as! WebSideMenuTableViewController
+            default:
+                break
+            }
+        }
+        
         self.coverView.alpha = 0.0
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WebViewController.didTapCover(_:)))
-        coverView.addGestureRecognizer(tapGesture)
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,31 +40,36 @@ class WebViewController: UIViewController {
     }
     
     func showSideMenu() {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
-            self.sideView.frame.size.width += 230.0
-            self.coverView.alpha += 0.5
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
+            self.sideView.frame.origin.x = self.view.frame.origin.x + self.view.frame.size.width - 230.0
+            self.coverView.alpha = 0.5
         }, completion: nil)
-        self.sideView.frame.size.width = 230.0
-        self.coverView.alpha = 0.5
         self.coverView.isUserInteractionEnabled = true
     }
     
     func hideSideMenu() {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
-            self.sideView.frame.size.width -= 230.0
-            self.coverView.alpha -= 0.5
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
+            self.sideView.frame.origin.x = self.view.frame.origin.x + self.view.frame.size.width
+            self.coverView.alpha = 0.0
         }, completion: nil)
-        self.sideView.frame.size.width = 0.0
-        self.coverView.alpha = 0.0
         self.coverView.isUserInteractionEnabled = false
     }
     
-    @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
-        if (self.sideView.frame.size.width < 230.0) { self.showSideMenu() }
-        else if (self.sideView.frame.size.width > 0.0) { self.hideSideMenu() }
+    func novelDownload(){
+        let nd = NovelDownloader()
+        nd.download(mainVC.webView.url!)
     }
     
-    @IBAction func didTapCover(_ sender: UIBarButtonItem) {
-        if (self.sideView.frame.size.width > 0.0) { self.hideSideMenu() }
+    @IBAction func didTapMenu(_ sender: Any) {
+        if (self.coverView.isUserInteractionEnabled) { self.hideSideMenu() }
+        else { self.showSideMenu() }
+    }
+    
+    @IBAction func didTapGoBack(_ sender: UIBarButtonItem) {
+        self.mainVC.webView.goBack()
+    }
+    
+    @IBAction func didTapGoForward(_ sender: UIBarButtonItem) {
+        self.mainVC.webView.goForward()
     }
 }

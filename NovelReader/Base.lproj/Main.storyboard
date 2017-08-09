@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,21 +41,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-df-2qA" userLabel="Web View">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yU-XB-BdK" userLabel="Web View">
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
-                                    <segue destination="K3H-Pw-eOq" kind="embed" id="OLS-Hi-dUp"/>
+                                    <segue destination="Q3K-PG-Jpa" kind="embed" id="hqX-sQ-NKa"/>
                                 </connections>
                             </containerView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVj-n9-2ix" userLabel="Cover View">
-                                <rect key="frame" x="-3" y="0.0" width="837" height="1112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xYY-ak-6SC" appends="YES" id="Z4S-jF-R3D"/>
+                                </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3F-iW-TZX" userLabel="Side View">
-                                <rect key="frame" x="-3" y="0.0" width="0.0" height="1112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                <rect key="frame" x="838" y="64" width="230" height="999"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="9gN-BG-pWg" kind="embed" id="slB-Wv-OCr"/>
                                 </connections>
@@ -64,7 +69,19 @@
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="KkX-aB-Qzw">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="UMQ-Wn-d5o">
+                        <leftBarButtonItems>
+                            <barButtonItem title="&lt;" id="YIS-f8-aqh">
+                                <connections>
+                                    <action selector="didTapGoBack:" destination="8rJ-Kc-sve" id="zH8-Q1-B13"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="&gt;" id="jmJ-Fp-Fcq">
+                                <connections>
+                                    <action selector="didTapGoForward:" destination="8rJ-Kc-sve" id="T56-Ly-rcI"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="UMQ-Wn-d5o">
                             <connections>
                                 <action selector="didTapMenu:" destination="8rJ-Kc-sve" id="BLf-8o-G3o"/>
                             </connections>
@@ -72,11 +89,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="coverView" destination="mVj-n9-2ix" id="b9N-Xu-jSb"/>
-                        <outlet property="navItem" destination="KkX-aB-Qzw" id="1Xq-UP-POC"/>
                         <outlet property="sideView" destination="B3F-iW-TZX" id="CS8-vM-giV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xYY-ak-6SC">
+                    <connections>
+                        <action selector="didTapMenu:" destination="8rJ-Kc-sve" id="fCr-Qa-m7n"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1517.2661870503598" y="357.19424460431657"/>
         </scene>
@@ -119,40 +140,29 @@
             </objects>
             <point key="canvasLocation" x="-31" y="359"/>
         </scene>
-        <!--Web Side View Controller-->
+        <!--Web Side Menu View Controller-->
         <scene sceneID="rZs-OT-VIp">
             <objects>
-                <viewController id="9gN-BG-pWg" userLabel="Web Side View Controller" customClass="WebSideViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebSideMenu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9gN-BG-pWg" userLabel="Web Side Menu View Controller" customClass="WebSideMenuTableViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FzV-ym-Vbs">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="999"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuList" id="R3e-tu-w1k">
+                                <rect key="frame" x="0.0" y="28" width="230" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R3e-tu-w1k" id="EZz-jE-APe">
+                                    <rect key="frame" x="0.0" y="0.0" width="230" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                     </tableView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZy-yL-GB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="CZG-y4-CQ4"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Ogv-Ik-1ni">
-                    <rectEdge key="edges" left="YES"/>
-                </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2071.9424460431655" y="358.5431654676259"/>
-        </scene>
-        <!--Web Main View Controller-->
-        <scene sceneID="BfY-Cc-3fp">
-            <objects>
-                <viewController id="K3H-Pw-eOq" userLabel="Web Main View Controller" customClass="WebMainViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" id="4ii-ly-tnm">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </webView>
-                    <connections>
-                        <outlet property="webView" destination="4ii-ly-tnm" id="KLf-nc-vbx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2mR-zo-jsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1517" y="1041"/>
+            <point key="canvasLocation" x="2311" y="357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="egG-xW-JSn">
@@ -172,6 +182,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nh-JL-pqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764.74820143884892" y="357.19424460431657"/>
+        </scene>
+        <!--Web Main View Controller-->
+        <scene sceneID="seD-wu-QBJ">
+            <objects>
+                <viewController storyboardIdentifier="WebMain" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q3K-PG-Jpa" customClass="WebMainViewController" customModule="NovelReader" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JKY-3Q-iLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1517" y="1086"/>
         </scene>
     </scenes>
 </document>

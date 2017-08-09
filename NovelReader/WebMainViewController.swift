@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import WebKit
 
-class WebMainViewController: UIViewController, UIWebViewDelegate {
+class WebMainViewController: UIViewController, WKUIDelegate, WKNavigationDelegate{
 
-    @IBOutlet weak var webView: UIWebView!
+    var webView: WKWebView!
+    
+    override func loadView() {
+        super.loadView()
+        
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        self.view = webView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://syosetu.org")!
-        let urlRequest = URLRequest(url: url)
-        webView.loadRequest(urlRequest)
-        // Do any additional setup after loading the view.
+        let myURL = URL(string: "https://syosetu.org")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     /*
     // MARK: - Navigation
 
